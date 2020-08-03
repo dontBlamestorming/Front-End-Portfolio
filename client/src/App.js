@@ -10,6 +10,7 @@ import Clock from "./components/Clock";
 import Bg_photo from "./components/BgPhoto";
 import Greeting from "./components/Greeting";
 import Todo from "./components/Todo";
+import News from "./components/NewsComponent/News";
 // import Todolist from "./components/Todolist";
 import Weather from "./components/Weather";
 
@@ -58,6 +59,7 @@ class App extends Component {
             />
 
             <Route
+              exact
               path="/confirmedUser"
               render={props => (
                 <Fragment>
@@ -68,6 +70,11 @@ class App extends Component {
                   <Bg_photo />
                 </Fragment>
               )}
+            />
+
+            <Route
+              path="/confirmedUser/news"
+              render={props => <News {...props} />}
             />
 
             <Route
