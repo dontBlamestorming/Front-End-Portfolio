@@ -5,6 +5,8 @@ import "./css/style.css";
 // Routing
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 
+// Layout
+import MainPage from "./components/MainPage";
 // 실제 사용자 서비스를 위한 Component
 import Clock from "./components/Clock";
 import Bg_photo from "./components/BgPhoto";
@@ -16,7 +18,7 @@ import Weather from "./components/Weather";
 
 // authentication(인증) Components
 import SignUpForm from "./components/SignUpForm";
-import LoginForm from "./components/LoginForm";
+// import LoginForm from "./components/LoginForm";
 
 class App extends Component {
   constructor(props) {
@@ -42,12 +44,15 @@ class App extends Component {
               exact
               path="/"
               render={props => (
-                <LoginForm
-                  {...props}
-                  onValueChange={this.handleValueChange}
-                  userId={this.state.userId}
-                  password={this.state.password}
-                />
+                <Fragment>
+                  <MainPage />
+                  {/* <LoginForm
+                    {...props}
+                    onValueChange={this.handleValueChange}
+                    userId={this.state.userId}
+                    password={this.state.password}
+                  /> */}
+                </Fragment>
               )}
             />
 
