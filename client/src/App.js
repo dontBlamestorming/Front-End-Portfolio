@@ -7,6 +7,7 @@ import { Switch, Route, BrowserRouter } from "react-router-dom";
 
 // Layout
 import MainPage from "./components/MainPage";
+// import BgPhoto from "./components/BgPhoto";
 // 실제 사용자 서비스를 위한 Component
 import Clock from "./components/Clock";
 import Bg_photo from "./components/BgPhoto";
@@ -72,7 +73,7 @@ class App extends Component {
                   <Clock />
                   <Todo />
                   <Weather />
-                  <Bg_photo />
+                  {/* <Bg_photo /> */}
                 </Fragment>
               )}
             />
