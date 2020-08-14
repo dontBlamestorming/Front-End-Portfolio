@@ -4,9 +4,46 @@ import TodoInsert from "./TodoComponent/TodoInsert";
 import TodoList from "./TodoComponent/TodoList";
 
 const Todo = () => {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState([
+    {
+      id: 1,
+      text: "Todo 리스트를 관리할 수 있습니다.",
+      checked: false,
+      status: "todo"
+    },
+    {
+      id: 2,
+      text: "Start 버튼을 누르면 시작됩니다!",
+      checked: false,
+      status: "todo"
+    },
+    {
+      id: 3,
+      text: "- 버튼을 눌러 리스트에서 제거할 수 있습니다.",
+      checked: false,
+      status: "todo"
+    },
+    {
+      id: 4,
+      text: "현재 진행하고 있는 일의 리스트입니다.",
+      checked: false,
+      status: "doing"
+    },
+    {
+      id: 5,
+      text: "해당 일을 모두 끝냈다면 체크 버튼을 눌러주세요!",
+      checked: false,
+      status: "doing"
+    },
+    {
+      id: 6,
+      text: "리스트를 제거하고 싶다면 - 버튼을 눌러주세요.",
+      checked: true,
+      status: "done"
+    }
+  ]);
 
-  const nextId = useRef(1);
+  const nextId = useRef(7);
   /**
    * 사용자로부터 typed된 값을 객체화 시킨 후 state로 업데이트
    *
@@ -19,7 +56,7 @@ const Todo = () => {
         id: nextId.current,
         text,
         checked: false,
-        status: "toDo"
+        status: "todo"
       };
       setTodos(todos.concat(todo));
       nextId.current += 1;

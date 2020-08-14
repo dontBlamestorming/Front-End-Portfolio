@@ -1,5 +1,58 @@
 .TodoListItem {
-  border: 1px solid black;
   padding: 10px;
   display: flex;
+  color: white;
+
+  .todo {
+    display: flex;
+    transition: all 0.3s ease;
+    .start {
+      padding-right: 15px;
+    }
+
+    .text {
+      width: 200px;
+    }
+    .remove {
+      font-size: 12px;
+      padding-left: 10px;
+      padding-top: 2px;
+    }
+  }
+
+  .doing {
+    display: flex;
+
+    .checkbox {
+      padding-right: 15px;
+    }
+
+    .text {
+      width: 200px;
+    }
+
+    .remove {
+      font-size: 12px;
+      padding-left: 10px;
+      padding-top: 2px;
+    }
+  }
+
+  .done {
+    display: flex;
+
+    .checkedbox {
+      padding-right: 15px;
+    }
+
+    .text {
+      width: 200px;
+    }
+
+    .remove {
+      font-size: 12px;
+      padding-left: 10px;
+      padding-top: 2px;
+    }
+  }
 }

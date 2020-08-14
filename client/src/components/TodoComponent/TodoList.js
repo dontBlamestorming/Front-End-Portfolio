@@ -10,7 +10,7 @@ const TodoList = ({ todos, onRemove, onToggle, onChangeStatus }) => {
   const distributeTodos = useCallback(todos =>
     todos.map(
       todo => {
-        if (todo.status === "toDo") {
+        if (todo.status === "todo") {
           todoArr.push(todo);
         } else if (todo.status === "doing") {
           doingArr.push(todo);
@@ -26,24 +26,40 @@ const TodoList = ({ todos, onRemove, onToggle, onChangeStatus }) => {
 
   const genTodoListItem = arr => {
     return arr.map(todo => (
-      <TodoListItem
-        todo={todo}
-        key={todo.id}
-        onRemove={onRemove}
-        onToggle={onToggle}
-        onChangeStatus={onChangeStatus}
-      />
+      <li>
+        <TodoListItem
+          todo={todo}
+          key={todo.id}
+          onRemove={onRemove}
+          onToggle={onToggle}
+          onChangeStatus={onChangeStatus}
+        />
+      </li>
     ));
   };
 
   return (
     <div className="TodoList">
-      <div>TODO</div>
-      {genTodoListItem(todoArr)}
-      <div>DOING</div>
-      {genTodoListItem(doingArr)}
-      <div>DONE</div>
-      {genTodoListItem(doneArr)}
+      <div className="todo-area">
+        <div className="todo-title">TODO</div>
+        <div className="todo-content">
+          <ul>{genTodoListItem(todoArr)}</ul>
+        </div>
+      </div>
+
+      <div className="doing-area">
+        <div className="doing-title">DOING</div>
+        <div className="doing-content">
+          <ul>{genTodoListItem(doingArr)}</ul>
+        </div>
+      </div>
+
+      <div className="done-area">
+        <div className="done-title">DONE</div>
+        <div className="done-content">
+          <ul>{genTodoListItem(doneArr)}</ul>
+        </div>
+      </div>
     </div>
   );
 };

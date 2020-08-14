@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from "react";
 import { MdAdd } from "react-icons/md";
+import "./TodoInsert.scss";
 
 const TodoInsert = ({ onInsert }) => {
   /*
@@ -25,13 +26,16 @@ const TodoInsert = ({ onInsert }) => {
   );
 
   return (
-    <form className="TodoInsert" onSubmit={submitHandler}>
+    <form className="TodoInsertForm" onSubmit={submitHandler}>
       <input
+        className="formInput"
+        type="input"
         value={typedValue}
         onChange={onChange}
         placeholder="할 일을 입력하세요"
+        required
       />
-      <button type="submit">
+      <button type="submit" className="formSubmitBtn">
         <MdAdd />
       </button>
     </form>

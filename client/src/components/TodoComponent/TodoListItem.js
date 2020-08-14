@@ -13,12 +13,11 @@ const TodoListItem = ({ todo, onRemove, onToggle, onChangeStatus }) => {
   const { id, text, checked, status } = todo;
 
   const showTodo = () => {
-    if (status === "toDo") {
+    if (status === "todo") {
       return (
-        <div className="toDo">
+        <div className="todo">
           <div className="start" onClick={() => onChangeStatus(id)}>
             <MdDirectionsRun />
-            START!
           </div>
           <div className="text">{text}</div>
           <div className="remove" onClick={() => onRemove(id)}>
@@ -49,7 +48,7 @@ const TodoListItem = ({ todo, onRemove, onToggle, onChangeStatus }) => {
     if (status === "done") {
       return (
         <div className="done">
-          <div>
+          <div className="checkedbox">
             <MdCheck />
           </div>
           <div className="text">{text}</div>

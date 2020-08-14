@@ -1,3 +1,75 @@
 .TodoList {
   display: flex;
+  justify-content: space-evenly;
+
+  .todo-area {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+
+    .todo-title {
+      font-size: 24px;
+      color: white;
+      text-align: center;
+    }
+
+    .todo-content {
+      height: 400px;
+      overflow-y: scroll;
+      -ms-overflow-style: none; // IE에서 스크롤바 감춤
+      &::-webkit-scrollbar {
+        width: 3px;
+        background: none;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: #f8f7fb;
+        opacity: 0.4;
+      }
+      &::-webkit-scrollbar-track {
+        background: none;
+      }
+    }
+  }
+
+  .doing-area {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+
+    .doing-title {
+      font-size: 24px;
+      color: white;
+      text-align: center;
+    }
+
+    .doing-content {
+      height: 400px;
+      overflow-y: scroll;
+      -ms-overflow-style: none; // IE에서 스크롤바 감춤
+      &::-webkit-scrollbar {
+        display: none !important; // 윈도우 크롬 등
+      }
+    }
+  }
+
+  .done-area {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+
+    .done-title {
+      font-size: 24px;
+      color: white;
+      text-align: center;
+    }
+
+    .done-content {
+      height: 400px;
+      overflow-y: scroll;
+      -ms-overflow-style: none; // IE에서 스크롤바 감춤
+      &::-webkit-scrollbar {
+        display: none !important; // 윈도우 크롬 등
+      }
+    }
+  }
 }

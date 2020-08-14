@@ -1,0 +1,22 @@
+#todoTemplate {
+  display: block;
+  border: 10px solid yellow;
+  width: 1200px;
+  height: 700px;
+  top: 150px;
+  margin: 0 auto;
+
+  .title {
+    text-align: center;
+    font-size: 36px;
+    color: white;
+  }
+
+  .content {
+    .TodoInsert {
+      display: flex;
+      justify-content: flex-end;
+      padding: 0 40px 40px 0;
+    }
+  }
+}
