@@ -1,0 +1,66 @@
+@import "../css/reset.css";
+@import url("http:fonts.googleapis.com/earlyaccess/nanumpenscript.css");
+
+// container
+.container {
+  position: relative;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+// header
+.row {
+  padding: 0 16px;
+}
+
+.header {
+  h1 {
+    float: left;
+    padding: 0 0 15px 60px;
+
+    strong {
+      font-family: "Nanum Pen Script", cursive;
+      color: white;
+      display: block;
+      font-size: 60px;
+      color: hsl(0, 0%, 100%);
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+    strong:hover {
+      transform: translateX(4px);
+      color: hsl(0, 0%, 100%);
+    }
+  }
+
+  .nav {
+    float: right;
+
+    li {
+      float: left;
+      margin: 50px 12px 0 12px;
+      text-align: center;
+      color: white;
+      font-size: 13px;
+      padding-bottom: 1px;
+      color: hsl(240, 22%, 96%);
+      position: relative;
+    }
+    li::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      opacity: 0;
+      transform: translateY(3px);
+      background: hsl(240, 22%, 96%);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    li:hover::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
