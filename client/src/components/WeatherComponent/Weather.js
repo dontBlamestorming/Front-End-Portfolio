@@ -4,6 +4,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import styled from "styled-components";
 import "./Weather.scss";
 
+// fontawsome
+import {
+  faLocationArrow,
+  faThermometerHalf,
+  faThermometerFull,
+  faThermometerEmpty,
+  faTint
+} from "@fortawesome/free-solid-svg-icons";
+// import {
+
+// } from "@fortawesome/free-brands-svg-icons";
+
 const Weather = () => {
   const [location, setLocation] = useState({
     latitude: null,
@@ -12,6 +24,7 @@ const Weather = () => {
 
   const [weatherData, setWeatherData] = useState({
     name: "",
+    weather: "",
     temp: "",
     humidity: "",
     feelsLike: "",
@@ -34,6 +47,8 @@ const Weather = () => {
         const res = await axios.get(query);
         const cityName = res.data.name;
         const weatherInfo = res.data.main;
+        const weather = res.data.weather[0].main;
+
         const {
           temp,
           humidity,
@@ -45,6 +60,7 @@ const Weather = () => {
 
         setWeatherData({
           name: cityName,
+          weather: weather,
           temp: temp,
           humidity: humidity,
           feelsLike: feels_like,
@@ -85,11 +101,11 @@ const Weather = () => {
       <div className="container">
         <div className="row">
           <div className="weather">
-            <div>현재 위치는 {weatherData.name}입니다.</div>
-            <div>현재 습도는 {weatherData.humidity}입니다.</div>
-            <div>현재 기온는 {weatherData.temp}입니다.</div>
-            <div>현재 체감온도는 {weatherData.feelsLike}입니다.</div>
-            <div>현재 기압는 {weatherData.pressure}입니다.</div>
+            <div>현재 날씨는 {weatherData.weather} 입니다.</div>
+            <div>현재 위치는 {weatherData.name} 입니다.</div>
+            <div>현재 습도는 {weatherData.humidity}% 입니다.</div>
+            <div>현재 기온는 {weatherData.temp} 입니다.</div>
+            <div>현재 체감온도는 {weatherData.feelsLike} 입니다.</div>
           </div>
         </div>
       </div>

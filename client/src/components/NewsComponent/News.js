@@ -4,7 +4,7 @@ import Categories from "./Categories";
 
 const News = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
-  console.log(selectedCategory);
+
   const onSelect = useCallback(
     selectedCategory => setSelectedCategory(selectedCategory),
     []

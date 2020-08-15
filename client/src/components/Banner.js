@@ -47,7 +47,7 @@ const Banner = () => {
           <h2 className="ir_so">인사 배너</h2>
           <div className="banner_img">
             <a href="#">
-              <img src="images/picture.jpg" alt="개발자 사진" />
+              <img src="images/example.png" alt="개발자 사진" />
             </a>
           </div>
           <div className="banner_text">

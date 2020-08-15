@@ -6,16 +6,21 @@ import "./css/style.css";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 
 // Layout
-import MainPage from "./components/MainPage";
-// import BgPhoto from "./components/BgPhoto";
+import Header from "./components/Header";
+import Banner from "./components/Banner";
+import Content from "./components/Content";
+import ContentModal from "./components/ContentModal";
+import Footer from "./components/Footer";
+
+import BgPhoto from "../src/components/BgPhoto";
+
 // 실제 사용자 서비스를 위한 Component
-import Clock from "./components/Clock";
-import Bg_photo from "./components/BgPhoto";
-import Greeting from "./components/Greeting";
+// import Clock from "./components/Clock";
+// import Greeting from "./components/Greeting";
 import Todo from "./components/Todo";
 import News from "./components/NewsComponent/News";
 // import Todolist from "./components/Todolist";
-import Weather from "./components/Weather";
+import Weather from "./components/WeatherComponent/Weather";
 
 // authentication(인증) Components
 import SignUpForm from "./components/SignUpForm";
@@ -40,19 +45,24 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
+          <BgPhoto />
           <Switch>
             <Route
               exact
               path="/"
               render={props => (
                 <Fragment>
-                  <MainPage />
+                  <Header />
+                  <Banner />
+                  <Content />
+                  <ContentModal />
                   {/* <LoginForm
                     {...props}
                     onValueChange={this.handleValueChange}
                     userId={this.state.userId}
                     password={this.state.password}
                   /> */}
+                  <Footer />
                 </Fragment>
               )}
             />
@@ -69,18 +79,37 @@ class App extends Component {
               path="/confirmedUser"
               render={props => (
                 <Fragment>
-                  <Greeting {...props} nickname={this.state.nickname} />
-                  <Clock />
+                  <Header />
+                  {/* <Greeting {...props} nickname={this.state.nickname} /> */}
+                  {/* <Clock /> */}
                   <Todo />
-                  <Weather />
+
                   {/* <Bg_photo /> */}
+                  <Footer />
                 </Fragment>
               )}
             />
 
             <Route
               path="/confirmedUser/news"
-              render={props => <News {...props} />}
+              render={props => (
+                <Fragment>
+                  <Header />
+                  <News {...props} />
+                  <Footer />
+                </Fragment>
+              )}
+            />
+
+            <Route
+              path="/confirmedUser/weather"
+              render={props => (
+                <Fragment>
+                  <Header />
+                  <Weather />
+                  <Footer />
+                </Fragment>
+              )}
             />
 
             <Route

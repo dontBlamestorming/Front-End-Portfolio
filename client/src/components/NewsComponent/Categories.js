@@ -37,6 +37,7 @@ const CategoriesBlock = styled.div`
   padding: 1rem;
   width: 768px;
   margin: 0 auto;
+  z-index: 100;
   @media screen and (max-width: 768px) {
     width: 100%;
     overflow-x: auto;
@@ -50,6 +51,7 @@ const CategoryBlock = styled.div`
   text-decoration: none;
   color: inherit;
   padding-bottom: 0.25rem;
+  z-index: 100;
   &:hover {
     color: #495057;
   }

@@ -9,6 +9,7 @@ const NewsListBlock = styled.div`
   width: 768px;
   margin: 0 auto;
   margin-top: 2rem;
+  z-index: 100;
   @media screen and (max-width: 768px) {
     width: 100%;
     padding-left: 1rem;
@@ -30,7 +31,6 @@ const NewsList = ({ category }) => {
           `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=${key}`
         );
         setArticles(res.data.articles);
-        console.log(res.data.articles);
       } catch (e) {
         console.log(e);
       }

@@ -6,12 +6,13 @@ const BgphotoBlock = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   position: relative;
   min-height: 100vh;
-  display: flex;
+  min-width: 100vh;
   justify-content: center;
   align-items: center;
-  z-index: -1;
+  z-index: -9998;
 `;
 
 const BgphotoBlockCover = styled.div`
@@ -19,20 +20,22 @@ const BgphotoBlockCover = styled.div`
   height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  z-index: -9997;
+`;
+
+const ForFixed = styled.div`
+  z-index: -9999;
+  position: fixed;
+  width: 100%;
 `;
 
 const BgPhoto = () => {
   return (
-    <BgphotoBlock>
-      <BgphotoBlockCover>
-        <div id="bgPhoto">
-          <div id="container">
-            <div className="bgPhoto"></div>
-          </div>
-        </div>
-      </BgphotoBlockCover>
-    </BgphotoBlock>
+    <ForFixed>
+      <BgphotoBlock>
+        <BgphotoBlockCover></BgphotoBlockCover>
+      </BgphotoBlock>
+    </ForFixed>
   );
 };
 /*
