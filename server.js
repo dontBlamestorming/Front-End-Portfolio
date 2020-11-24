@@ -4,6 +4,24 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = process.env.PORT || 5000;
 
+// session
+const session = require("express-session");
+// const fileStore = require("session-file-store")(session);
+
+app.use(
+  session({
+    secret: "dasfkjnq#$dljkf!#!@#5",
+    resave: false,
+    saveUninitialized: true
+  })
+);
+
+/**
+ * @secret 노출되면 안된다.
+ * @resave 세션 데이터가 바뀌기 전까지는 세션 저장소의 값을 save하지 않는다.
+ * @saveUninitialized 세션이 필요한 전까지는 세션을 구동시키지 않는다.
+ */
+
 // middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -86,6 +104,10 @@ app.post("/signUp/users", (req, res, next) => {
       console.log("회원가입을 축하드립니다.");
     }
   });
+});
+
+app.get("/signUp", (req, res, next) => {
+  console.log(req.session);
 });
 
 app.use(function(req, res, next) {

@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import styled from "styled-components";
 import "./Weather.scss";
 
 // fontawsome
-import {
-  faLocationArrow,
-  faThermometerHalf,
-  faThermometerFull,
-  faThermometerEmpty,
-  faTint
-} from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import {
+//   faLocationArrow,
+//   faThermometerHalf,
+//   faThermometerFull,
+//   faThermometerEmpty,
+//   faTint
+// } from "@fortawesome/free-solid-svg-icons";
 // import {
 
 // } from "@fortawesome/free-brands-svg-icons";
@@ -19,7 +19,7 @@ import {
 const Weather = () => {
   const [location, setLocation] = useState({
     latitude: null,
-    longitude: null
+    longitude: null,
   });
 
   const [weatherData, setWeatherData] = useState({
@@ -30,7 +30,7 @@ const Weather = () => {
     feelsLike: "",
     minTemp: "",
     maxTemp: "",
-    pressure: ""
+    pressure: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -55,7 +55,7 @@ const Weather = () => {
           feels_like,
           minTemp,
           maxTemp,
-          pressure
+          pressure,
         } = weatherInfo;
 
         setWeatherData({
@@ -66,7 +66,7 @@ const Weather = () => {
           feelsLike: feels_like,
           minTemp: minTemp,
           maxTemp: maxTemp,
-          pressure: pressure
+          pressure: pressure,
         });
       } catch (e) {
         console.log(e);
@@ -80,10 +80,10 @@ const Weather = () => {
     return <div className="loading ir_so">Loading</div>;
   }
 
-  const saveLocation = locationInfo => {
+  const saveLocation = (locationInfo) => {
     setLocation({
       latitude: locationInfo.coords.latitude,
-      longitude: locationInfo.coords.longitude
+      longitude: locationInfo.coords.longitude,
     });
   };
 

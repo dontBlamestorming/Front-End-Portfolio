@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import "./css/reset.css";
 import "./css/style.css";
 
@@ -6,11 +6,11 @@ import "./css/style.css";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 
 // Layout
-import Header from "./components/Header";
+import Layout from "./components/Layout";
 import Banner from "./components/Banner";
 import Content from "./components/Content";
 import ContentModal from "./components/ContentModal";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 
 import BgPhoto from "../src/components/BgPhoto";
 
@@ -32,11 +32,11 @@ class App extends Component {
     this.state = {
       userId: "",
       password: "",
-      nickname: ""
+      nickname: "",
     };
   }
 
-  handleValueChange = Value => {
+  handleValueChange = (Value) => {
     this.setState(Value);
     console.log(this.state);
   };
@@ -50,9 +50,8 @@ class App extends Component {
             <Route
               exact
               path="/"
-              render={props => (
-                <Fragment>
-                  <Header />
+              render={(props) => (
+                <Layout>
                   <Banner />
                   <Content />
                   <ContentModal />
@@ -62,53 +61,50 @@ class App extends Component {
                     userId={this.state.userId}
                     password={this.state.password}
                   /> */}
-                  <Footer />
-                </Fragment>
+                </Layout>
               )}
             />
 
             <Route
               path="/signUp"
-              render={props => (
-                <SignUpForm {...props} onValueChange={this.handleValueChange} />
+              render={(props) => (
+                <Layout>
+                  <SignUpForm
+                    {...props}
+                    onValueChange={this.handleValueChange}
+                  />
+                </Layout>
               )}
             />
 
             <Route
               exact
               path="/confirmedUser"
-              render={props => (
-                <Fragment>
-                  <Header />
+              render={(props) => (
+                <Layout>
                   {/* <Greeting {...props} nickname={this.state.nickname} /> */}
                   {/* <Clock /> */}
                   <Todo />
-
                   {/* <Bg_photo /> */}
-                  <Footer />
-                </Fragment>
+                </Layout>
               )}
             />
 
             <Route
               path="/confirmedUser/news"
-              render={props => (
-                <Fragment>
-                  <Header />
+              render={(props) => (
+                <Layout>
                   <News {...props} />
-                  <Footer />
-                </Fragment>
+                </Layout>
               )}
             />
 
             <Route
               path="/confirmedUser/weather"
-              render={props => (
-                <Fragment>
-                  <Header />
+              render={(props) => (
+                <Layout>
                   <Weather />
-                  <Footer />
-                </Fragment>
+                </Layout>
               )}
             />
 
